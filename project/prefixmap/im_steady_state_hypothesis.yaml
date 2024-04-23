@@ -1,0 +1,85 @@
+{
+   "SteadyStateHypothesisProfile": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfile/",
+   "TC57CIM": "https://cim.ucaiug.io/ns#TC57CIM/",
+   "cim": "http://iec.ch/TC57/CIM100#",
+   "cims": "http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#",
+   "dc": "http://purl.org/dc/elements/1.1/",
+   "dcat": "http://www.w3.org/ns/dcat#",
+   "dct": "http://purl.org/dc/terms/",
+   "dcterms": "http://purl.org/dc/terms/",
+   "eu": "http://iec.ch/TC57/CIM100-European#",
+   "faldo": "http://biohackathon.org/resource/faldo#",
+   "foaf": "http://xmlns.com/foaf/0.1/",
+   "github": "https://github.com/",
+   "idot": "http://identifiers.org/",
+   "linkml": "https://w3id.org/linkml/",
+   "oa": "http://www.w3.org/ns/oa#",
+   "oboInOwl": "http://www.geneontology.org/formats/oboInOwl#",
+   "owl": "http://www.w3.org/2002/07/owl#",
+   "profcim": "http://iec.ch/TC57/ns/CIM/prof-cim#",
+   "prov": "http://www.w3.org/ns/prov#",
+   "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+   "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+   "schema": "http://schema.org/",
+   "sh": "http://www.w3.org/ns/shacl#",
+   "shex": "http://www.w3.org/ns/shex#",
+   "skos": "http://www.w3.org/2004/02/skos/core#",
+   "ssh": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#",
+   "this": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfile",
+   "void": "http://rdfs.org/ns/void#",
+   "xsd": "http://www.w3.org/2001/XMLSchema#",
+   "ACDCTerminal": {
+      "@id": "cim:ACDCTerminal"
+   },
+   "ActivePower": {
+      "@id": "cim:ActivePower"
+   },
+   "Breaker": {
+      "@id": "cim:Breaker"
+   },
+   "ConductingEquipment": {
+      "@id": "cim:ConductingEquipment"
+   },
+   "Disconnector": {
+      "@id": "cim:Disconnector"
+   },
+   "EnergyConnection": {
+      "@id": "cim:EnergyConnection"
+   },
+   "EnergyConsumer": {
+      "@id": "cim:EnergyConsumer"
+   },
+   "Equipment": {
+      "@id": "cim:Equipment"
+   },
+   "IdentifiedObject": {
+      "@id": "cim:IdentifiedObject"
+   },
+   "LoadBreakSwitch": {
+      "@id": "cim:LoadBreakSwitch"
+   },
+   "Name": {
+      "@id": "cim:Name"
+   },
+   "NameType": {
+      "@id": "cim:NameType"
+   },
+   "NameTypeAuthority": {
+      "@id": "cim:NameTypeAuthority"
+   },
+   "PowerSystemResource": {
+      "@id": "cim:PowerSystemResource"
+   },
+   "ProtectedSwitch": {
+      "@id": "cim:ProtectedSwitch"
+   },
+   "ReactivePower": {
+      "@id": "cim:ReactivePower"
+   },
+   "Switch": {
+      "@id": "cim:Switch"
+   },
+   "Terminal": {
+      "@id": "cim:Terminal"
+   }
+}

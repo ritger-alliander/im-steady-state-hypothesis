@@ -1,0 +1,1425 @@
+@prefix cim: <http://iec.ch/TC57/CIM100#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix linkml: <https://w3id.org/linkml/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix this: <http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfile> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+this:Breaker a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Breaker" ;
+    rdfs:subClassOf this:ProtectedSwitch ;
+    skos:definition "A mechanical switching device capable of making, carrying, and breaking currents under normal circuit conditions and also making, carrying for a specified time, and breaking currents under specified abnormal circuit conditions e.g.  those of short circuit." ;
+    skos:exactMatch cim:Breaker ;
+    skos:inScheme this: .
+
+this:Disconnector a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Disconnector" ;
+    rdfs:subClassOf this:Switch ;
+    skos:definition "A manually operated or motor operated mechanical switching device used for changing the connections in a circuit, or for isolating a circuit or equipment from a source of power. It is required to open or close circuits when negligible current is broken or made." ;
+    skos:exactMatch cim:Disconnector ;
+    skos:inScheme this: .
+
+this:EnergyConsumer a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "EnergyConsumer" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom this:ReactivePower ;
+            owl:onProperty this:q ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty this:p ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty this:p ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty this:q ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom this:ActivePower ;
+            owl:onProperty this:p ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty this:q ],
+        this:EnergyConnection ;
+    skos:definition """Generic user of energy - a  point of consumption on the power system model.
+EnergyConsumer.pfixed, .qfixed, .pfixedPct and .qfixedPct have meaning only if there is no LoadResponseCharacteristic associated with EnergyConsumer or if LoadResponseCharacteristic.exponentModel is set to False.""" ;
+    skos:exactMatch cim:EnergyConsumer ;
+    skos:inScheme this: .
+
+this:LoadBreakSwitch a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "LoadBreakSwitch" ;
+    rdfs:subClassOf this:ProtectedSwitch ;
+    skos:definition "A mechanical switching device capable of making, carrying, and breaking currents under normal operating conditions." ;
+    skos:exactMatch cim:LoadBreakSwitch ;
+    skos:inScheme this: .
+
+this:Terminal a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Terminal" ;
+    rdfs:subClassOf this:ACDCTerminal ;
+    skos:definition "An AC electrical connection point to a piece of conducting equipment. Terminals are connected at physical connection points called connectivity nodes." ;
+    skos:exactMatch cim:Terminal ;
+    skos:inScheme this: .
+
+this:ACDCTerminal a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "ACDCTerminal" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty this:connected ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Boolean ;
+            owl:onProperty this:connected ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty this:connected ],
+        this:IdentifiedObject ;
+    skos:definition "An electrical connection point (AC or DC) to a piece of conducting equipment. Terminals are connected at physical connection points called connectivity nodes." ;
+    skos:exactMatch cim:ACDCTerminal ;
+    skos:inScheme this: .
+
+this:ActivePower a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "ActivePower" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty this:value ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty this:value ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty this:unit ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Float ;
+            owl:onProperty this:value ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty this:multiplier ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom cim:UnitSymbol ;
+            owl:onProperty this:unit ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty this:multiplier ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom cim:UnitMultiplier ;
+            owl:onProperty this:multiplier ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty this:unit ] ;
+    skos:definition "Product of RMS value of the voltage and the RMS value of the in-phase component of the current." ;
+    skos:exactMatch cim:ActivePower ;
+    skos:inScheme this: .
+
+this:EnergyConnection a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "EnergyConnection" ;
+    rdfs:subClassOf this:ConductingEquipment ;
+    skos:definition "A connection of energy generation or consumption on the power system model." ;
+    skos:exactMatch cim:EnergyConnection ;
+    skos:inScheme this: .
+
+this:Equipment a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Equipment" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty this:in_service ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Boolean ;
+            owl:onProperty this:in_service ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty this:in_service ],
+        this:PowerSystemResource ;
+    skos:definition "The parts of a power system that are physical devices, electronic or mechanical." ;
+    skos:exactMatch cim:Equipment ;
+    skos:inScheme this: .
+
+this:NameTypeAuthority a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "NameTypeAuthority" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty this:name_types ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty this:description ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom this:NameType ;
+            owl:onProperty this:name_types ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty this:description ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty this:description ] ;
+    skos:definition """Authority responsible for creation and management of names of a given type; typically an organization or an enterprise system.\r
+""" ;
+    skos:exactMatch cim:NameTypeAuthority ;
+    skos:inScheme this: .
+
+this:PowerSystemResource a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "PowerSystemResource" ;
+    rdfs:subClassOf this:IdentifiedObject ;
+    skos:definition "A power system resource (PSR) can be an item of equipment such as a switch, an equipment container containing many individual items of equipment such as a substation, or an organisational entity such as sub-control area. Power system resources can have measurements associated." ;
+    skos:exactMatch cim:PowerSystemResource ;
+    skos:inScheme this: .
+
+this:ReactivePower a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "ReactivePower" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Float ;
+            owl:onProperty this:value ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty this:unit ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom cim:UnitMultiplier ;
+            owl:onProperty this:multiplier ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom cim:UnitSymbol ;
+            owl:onProperty this:unit ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty this:value ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty this:unit ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty this:multiplier ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty this:value ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty this:multiplier ] ;
+    skos:definition "Product of RMS value of the voltage and the RMS value of the quadrature component of the current." ;
+    skos:exactMatch cim:ReactivePower ;
+    skos:inScheme this: .
+
+cim:UnitMultiplier.E a cim:UnitMultiplier,
+        owl:Class ;
+    rdfs:label "E" ;
+    rdfs:subClassOf cim:UnitMultiplier .
+
+cim:UnitMultiplier.G a cim:UnitMultiplier,
+        owl:Class ;
+    rdfs:label "G" ;
+    rdfs:subClassOf cim:UnitMultiplier .
+
+cim:UnitMultiplier.M a cim:UnitMultiplier,
+        owl:Class ;
+    rdfs:label "M" ;
+    rdfs:subClassOf cim:UnitMultiplier .
+
+cim:UnitMultiplier.P a cim:UnitMultiplier,
+        owl:Class ;
+    rdfs:label "P" ;
+    rdfs:subClassOf cim:UnitMultiplier .
+
+cim:UnitMultiplier.T a cim:UnitMultiplier,
+        owl:Class ;
+    rdfs:label "T" ;
+    rdfs:subClassOf cim:UnitMultiplier .
+
+cim:UnitMultiplier.Y a cim:UnitMultiplier,
+        owl:Class ;
+    rdfs:label "Y" ;
+    rdfs:subClassOf cim:UnitMultiplier .
+
+cim:UnitMultiplier.Z a cim:UnitMultiplier,
+        owl:Class ;
+    rdfs:label "Z" ;
+    rdfs:subClassOf cim:UnitMultiplier .
+
+cim:UnitMultiplier.a a cim:UnitMultiplier,
+        owl:Class ;
+    rdfs:label "a" ;
+    rdfs:subClassOf cim:UnitMultiplier .
+
+cim:UnitMultiplier.c a cim:UnitMultiplier,
+        owl:Class ;
+    rdfs:label "c" ;
+    rdfs:subClassOf cim:UnitMultiplier .
+
+cim:UnitMultiplier.d a cim:UnitMultiplier,
+        owl:Class ;
+    rdfs:label "d" ;
+    rdfs:subClassOf cim:UnitMultiplier .
+
+cim:UnitMultiplier.da a cim:UnitMultiplier,
+        owl:Class ;
+    rdfs:label "da" ;
+    rdfs:subClassOf cim:UnitMultiplier .
+
+cim:UnitMultiplier.f a cim:UnitMultiplier,
+        owl:Class ;
+    rdfs:label "f" ;
+    rdfs:subClassOf cim:UnitMultiplier .
+
+cim:UnitMultiplier.h a cim:UnitMultiplier,
+        owl:Class ;
+    rdfs:label "h" ;
+    rdfs:subClassOf cim:UnitMultiplier .
+
+cim:UnitMultiplier.k a cim:UnitMultiplier,
+        owl:Class ;
+    rdfs:label "k" ;
+    rdfs:subClassOf cim:UnitMultiplier .
+
+cim:UnitMultiplier.m a cim:UnitMultiplier,
+        owl:Class ;
+    rdfs:label "m" ;
+    rdfs:subClassOf cim:UnitMultiplier .
+
+cim:UnitMultiplier.micro a cim:UnitMultiplier,
+        owl:Class ;
+    rdfs:label "micro" ;
+    rdfs:subClassOf cim:UnitMultiplier .
+
+cim:UnitMultiplier.n a cim:UnitMultiplier,
+        owl:Class ;
+    rdfs:label "n" ;
+    rdfs:subClassOf cim:UnitMultiplier .
+
+cim:UnitMultiplier.none a cim:UnitMultiplier,
+        owl:Class ;
+    rdfs:label "none" ;
+    rdfs:subClassOf cim:UnitMultiplier .
+
+cim:UnitMultiplier.p a cim:UnitMultiplier,
+        owl:Class ;
+    rdfs:label "p" ;
+    rdfs:subClassOf cim:UnitMultiplier .
+
+cim:UnitMultiplier.y a cim:UnitMultiplier,
+        owl:Class ;
+    rdfs:label "y" ;
+    rdfs:subClassOf cim:UnitMultiplier .
+
+cim:UnitMultiplier.z a cim:UnitMultiplier,
+        owl:Class ;
+    rdfs:label "z" ;
+    rdfs:subClassOf cim:UnitMultiplier .
+
+cim:UnitSymbol.A a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "A" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.A2 a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "A2" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.A2h a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "A2h" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.A2s a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "A2s" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.APerA a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "APerA" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.APerm a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "APerm" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.Ah a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "Ah" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.As a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "As" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.Bq a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "Bq" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.Btu a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "Btu" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.C a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "C" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.CPerkg a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "CPerkg" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.CPerm2 a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "CPerm2" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.CPerm3 a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "CPerm3" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.F a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "F" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.FPerm a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "FPerm" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.G a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "G" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.Gy a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "Gy" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.GyPers a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "GyPers" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.H a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "H" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.HPerm a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "HPerm" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.Hz a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "Hz" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.HzPerHz a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "HzPerHz" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.HzPers a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "HzPers" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.J a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "J" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.JPerK a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "JPerK" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.JPerkg a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "JPerkg" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.JPerkgK a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "JPerkgK" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.JPerm2 a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "JPerm2" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.JPerm3 a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "JPerm3" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.JPermol a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "JPermol" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.JPermolK a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "JPermolK" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.JPers a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "JPers" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.K a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "K" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.KPers a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "KPers" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.M a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "M" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.Mx a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "Mx" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.N a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "N" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.NPerm a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "NPerm" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.Nm a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "Nm" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.Oe a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "Oe" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.Pa a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "Pa" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.PaPers a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "PaPers" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.Pas a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "Pas" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.Q a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "Q" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.Qh a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "Qh" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.S a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "S" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.SPerm a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "SPerm" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.Sv a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "Sv" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.T a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "T" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.V a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "V" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.V2 a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "V2" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.V2h a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "V2h" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.VA a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "VA" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.VAh a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "VAh" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.VAr a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "VAr" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.VArh a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "VArh" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.VPerHz a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "VPerHz" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.VPerV a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "VPerV" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.VPerVA a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "VPerVA" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.VPerVAr a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "VPerVAr" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.VPerm a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "VPerm" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.Vh a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "Vh" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.Vs a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "Vs" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.W a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "W" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.WPerA a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "WPerA" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.WPerW a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "WPerW" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.WPerm2 a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "WPerm2" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.WPerm2sr a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "WPerm2sr" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.WPermK a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "WPermK" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.WPers a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "WPers" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.WPersr a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "WPersr" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.Wb a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "Wb" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.Wh a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "Wh" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.anglemin a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "anglemin" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.anglesec a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "anglesec" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.bar a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "bar" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.cd a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "cd" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.charPers a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "charPers" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.character a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "character" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.cosPhi a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "cosPhi" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.count a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "count" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.d a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "d" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.dB a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "dB" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.dBm a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "dBm" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.deg a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "deg" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.degC a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "degC" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.ft3 a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "ft3" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.gPerg a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "gPerg" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.gal a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "gal" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.h a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "h" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.ha a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "ha" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.kat a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "kat" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.katPerm3 a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "katPerm3" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.kg a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "kg" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.kgPerJ a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "kgPerJ" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.kgPerm3 a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "kgPerm3" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.kgm a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "kgm" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.kgm2 a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "kgm2" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.kn a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "kn" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.l a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "l" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.lPerh a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "lPerh" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.lPerl a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "lPerl" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.lPers a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "lPers" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.lm a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "lm" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.lx a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "lx" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.m a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "m" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.m2 a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "m2" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.m2Pers a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "m2Pers" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.m3 a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "m3" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.m3Compensated a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "m3Compensated" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.m3Perh a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "m3Perh" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.m3Perkg a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "m3Perkg" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.m3Pers a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "m3Pers" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.m3Uncompensated a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "m3Uncompensated" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.mPerm3 a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "mPerm3" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.mPers a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "mPers" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.mPers2 a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "mPers2" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.min a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "min" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.mmHg a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "mmHg" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.mol a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "mol" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.molPerkg a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "molPerkg" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.molPerm3 a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "molPerm3" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.molPermol a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "molPermol" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.none a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "none" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.ohm a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "ohm" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.ohmPerm a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "ohmPerm" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.ohmm a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "ohmm" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.onePerHz a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "onePerHz" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.onePerm a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "onePerm" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.ppm a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "ppm" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.rad a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "rad" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.radPers a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "radPers" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.radPers2 a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "radPers2" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.rev a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "rev" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.rotPers a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "rotPers" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.s a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "s" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.sPers a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "sPers" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.sr a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "sr" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.therm a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "therm" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+cim:UnitSymbol.tonne a cim:UnitSymbol,
+        owl:Class ;
+    rdfs:label "tonne" ;
+    rdfs:subClassOf cim:UnitSymbol .
+
+this:ConductingEquipment a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "ConductingEquipment" ;
+    rdfs:subClassOf this:Equipment ;
+    skos:definition "The parts of the AC power system that are designed to carry current or that are conductively connected through terminals." ;
+    skos:exactMatch cim:ConductingEquipment ;
+    skos:inScheme this: .
+
+this:Name a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Name" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom this:NameType ;
+            owl:onProperty this:name_type ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom this:IdentifiedObject ;
+            owl:onProperty this:identified_object ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty this:name_type ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty this:identified_object ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty this:identified_object ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty this:name_type ] ;
+    skos:definition """The Name class provides the means to define any number of human readable  names for an object. A name is <b>not</b> to be used for defining inter-object relationships. For inter-object relationships instead use the object identification 'mRID'.\r
+""" ;
+    skos:exactMatch cim:Name ;
+    skos:inScheme this: .
+
+this:NameType a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "NameType" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty this:description ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty this:name_type_authority ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty this:names ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom this:NameTypeAuthority ;
+            owl:onProperty this:name_type_authority ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom this:Name ;
+            owl:onProperty this:names ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty this:description ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty this:name_type_authority ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty this:description ] ;
+    skos:definition """Type of name. Possible values for attribute 'name' are implementation dependent but standard profiles may specify types. An enterprise may have multiple IT systems each having its own local name for the same object, e.g. a planning system may have different names from an EMS. An object may also have different names within the same IT system, e.g. localName as defined in CIM version 14. The definition from CIM14 is:\r
+The localName is a human readable name of the object. It is a free text name local to a node in a naming hierarchy similar to a file directory structure. A power system related naming hierarchy may be: Substation, VoltageLevel, Equipment etc. Children of the same parent in such a hierarchy have names that typically are unique among them.\r
+""" ;
+    skos:exactMatch cim:NameType ;
+    skos:inScheme this: .
+
+this:ProtectedSwitch a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "ProtectedSwitch" ;
+    rdfs:subClassOf this:Switch ;
+    skos:definition "A ProtectedSwitch is a switching device that can be operated by ProtectionEquipment." ;
+    skos:exactMatch cim:ProtectedSwitch ;
+    skos:inScheme this: .
+
+this:Switch a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "Switch" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Boolean ;
+            owl:onProperty this:open ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty this:locked ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty this:locked ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty this:open ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom linkml:Boolean ;
+            owl:onProperty this:locked ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty this:open ],
+        this:ConductingEquipment ;
+    skos:definition "A generic device designed to close, or open, or both, one or more electric circuits.  All switches are two terminal devices including grounding switches. The ACDCTerminal.connected at the two sides of the switch shall not be considered for assessing switch connectivity, i.e. only Switch.open, .normalOpen and .locked are relevant." ;
+    skos:exactMatch cim:Switch ;
+    skos:inScheme this: .
+
+this:name_types a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "name_types" ;
+    skos:definition "All name types managed by this authority." ;
+    skos:inScheme this: .
+
+this:IdentifiedObject a owl:Class,
+        linkml:ClassDefinition ;
+    rdfs:label "IdentifiedObject" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom linkml:String ;
+            owl:onProperty this:m_rid ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty this:m_rid ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom this:Name ;
+            owl:onProperty this:names ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty this:m_rid ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty this:names ] ;
+    skos:definition "This is a root class to provide common identification for all classes needing identification and naming attributes." ;
+    skos:exactMatch cim:IdentifiedObject ;
+    skos:inScheme this: .
+
+this:connected a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "connected" ;
+    skos:definition """The connected status is related to a bus-branch model and the topological node to terminal relation.  True implies the terminal is connected to the related topological node and false implies it is not. 
+In a bus-branch model, the connected status is used to tell if equipment is disconnected without having to change the connectivity described by the topological node to terminal relation. A valid case is that conducting equipment can be connected in one end and open in the other. In particular for an AC line segment, where the reactive line charging can be significant, this is a relevant case.""" ;
+    skos:inScheme this: .
+
+this:identified_object a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "identified_object" ;
+    skos:definition "Identified object that this name designates." ;
+    skos:inScheme this: .
+
+this:in_service a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "in_service" ;
+    skos:definition "Specifies the availability of the equipment. True means the equipment is available for topology processing, which determines if the equipment is energized or not. False means that the equipment is treated by network applications as if it is not in the model." ;
+    skos:inScheme this: .
+
+this:locked a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "locked" ;
+    skos:definition """If true, the switch is locked. The resulting switch state is a combination of locked and Switch.open attributes as follows:
+<ul>
+	<li>locked=true and Switch.open=true. The resulting state is open and locked;</li>
+	<li>locked=false and Switch.open=true. The resulting state is open;</li>
+	<li>locked=false and Switch.open=false. The resulting state is closed.</li>
+</ul>""" ;
+    skos:inScheme this: .
+
+this:m_rid a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "m_rid" ;
+    skos:definition """Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.
+For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.""" ;
+    skos:inScheme this: .
+
+this:name_type a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "name_type" ;
+    skos:definition "Type of this name." ;
+    skos:inScheme this: .
+
+this:name_type_authority a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "name_type_authority" ;
+    skos:definition "Authority responsible for managing names of this type." ;
+    skos:inScheme this: .
+
+this:open a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "open" ;
+    skos:definition "The attribute tells if the switch is considered open when used as input to topology processing." ;
+    skos:inScheme this: .
+
+this:p a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "p" ;
+    skos:definition """Active power of the load. Load sign convention is used, i.e. positive sign means flow out from a node.
+For voltage dependent loads the value is at rated voltage.
+Starting value for a steady state solution.""" ;
+    skos:inScheme this: .
+
+this:q a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "q" ;
+    skos:definition """Reactive power of the load. Load sign convention is used, i.e. positive sign means flow out from a node.
+For voltage dependent loads the value is at rated voltage.
+Starting value for a steady state solution.""" ;
+    skos:inScheme this: .
+
+this:names a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "names" ;
+    skos:definition "All names of this type." ;
+    skos:inScheme this: .
+
+this:description a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "description" ;
+    skos:definition """Description of the name type authority.\r
+""",
+        """Description of the name type.\r
+""" ;
+    skos:inScheme this: .
+
+this:multiplier a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "multiplier" ;
+    skos:inScheme this: .
+
+this:unit a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "unit" ;
+    skos:inScheme this: .
+
+this:value a owl:ObjectProperty,
+        linkml:SlotDefinition ;
+    rdfs:label "value" ;
+    skos:inScheme this: .
+
+this: a owl:Ontology ;
+    rdfs:label "SteadyStateHypothesisProfile" ;
+    dcterms:title "Steady State Hypothesis Vocabulary" ;
+    skos:definition "This vocabulary is describing the steady state hypothesis profile from IEC 61970-600-2." .
+
+cim:UnitMultiplier a owl:Class,
+        linkml:EnumDefinition ;
+    owl:unionOf ( cim:UnitMultiplier.y cim:UnitMultiplier.z cim:UnitMultiplier.a cim:UnitMultiplier.f cim:UnitMultiplier.p cim:UnitMultiplier.n cim:UnitMultiplier.micro cim:UnitMultiplier.m cim:UnitMultiplier.c cim:UnitMultiplier.d cim:UnitMultiplier.none cim:UnitMultiplier.da cim:UnitMultiplier.h cim:UnitMultiplier.k cim:UnitMultiplier.M cim:UnitMultiplier.G cim:UnitMultiplier.T cim:UnitMultiplier.P cim:UnitMultiplier.E cim:UnitMultiplier.Z cim:UnitMultiplier.Y ) ;
+    linkml:permissible_values cim:UnitMultiplier.E,
+        cim:UnitMultiplier.G,
+        cim:UnitMultiplier.M,
+        cim:UnitMultiplier.P,
+        cim:UnitMultiplier.T,
+        cim:UnitMultiplier.Y,
+        cim:UnitMultiplier.Z,
+        cim:UnitMultiplier.a,
+        cim:UnitMultiplier.c,
+        cim:UnitMultiplier.d,
+        cim:UnitMultiplier.da,
+        cim:UnitMultiplier.f,
+        cim:UnitMultiplier.h,
+        cim:UnitMultiplier.k,
+        cim:UnitMultiplier.m,
+        cim:UnitMultiplier.micro,
+        cim:UnitMultiplier.n,
+        cim:UnitMultiplier.none,
+        cim:UnitMultiplier.p,
+        cim:UnitMultiplier.y,
+        cim:UnitMultiplier.z .
+
+cim:UnitSymbol a owl:Class,
+        linkml:EnumDefinition ;
+    owl:unionOf ( cim:UnitSymbol.none cim:UnitSymbol.m cim:UnitSymbol.kg cim:UnitSymbol.s cim:UnitSymbol.A cim:UnitSymbol.K cim:UnitSymbol.mol cim:UnitSymbol.cd cim:UnitSymbol.deg cim:UnitSymbol.rad cim:UnitSymbol.sr cim:UnitSymbol.Gy cim:UnitSymbol.Bq cim:UnitSymbol.degC cim:UnitSymbol.Sv cim:UnitSymbol.F cim:UnitSymbol.C cim:UnitSymbol.S cim:UnitSymbol.H cim:UnitSymbol.V cim:UnitSymbol.ohm cim:UnitSymbol.J cim:UnitSymbol.N cim:UnitSymbol.Hz cim:UnitSymbol.lx cim:UnitSymbol.lm cim:UnitSymbol.Wb cim:UnitSymbol.T cim:UnitSymbol.W cim:UnitSymbol.Pa cim:UnitSymbol.m2 cim:UnitSymbol.m3 cim:UnitSymbol.mPers cim:UnitSymbol.mPers2 cim:UnitSymbol.m3Pers cim:UnitSymbol.mPerm3 cim:UnitSymbol.kgm cim:UnitSymbol.kgPerm3 cim:UnitSymbol.m2Pers cim:UnitSymbol.WPermK cim:UnitSymbol.JPerK cim:UnitSymbol.ppm cim:UnitSymbol.rotPers cim:UnitSymbol.radPers cim:UnitSymbol.WPerm2 cim:UnitSymbol.JPerm2 cim:UnitSymbol.SPerm cim:UnitSymbol.KPers cim:UnitSymbol.PaPers cim:UnitSymbol.JPerkgK cim:UnitSymbol.VA cim:UnitSymbol.VAr cim:UnitSymbol.cosPhi cim:UnitSymbol.Vs cim:UnitSymbol.V2 cim:UnitSymbol.As cim:UnitSymbol.A2 cim:UnitSymbol.A2s cim:UnitSymbol.VAh cim:UnitSymbol.Wh cim:UnitSymbol.VArh cim:UnitSymbol.VPerHz cim:UnitSymbol.HzPers cim:UnitSymbol.character cim:UnitSymbol.charPers cim:UnitSymbol.kgm2 cim:UnitSymbol.dB cim:UnitSymbol.WPers cim:UnitSymbol.lPers cim:UnitSymbol.dBm cim:UnitSymbol.h cim:UnitSymbol.min cim:UnitSymbol.Q cim:UnitSymbol.Qh cim:UnitSymbol.ohmm cim:UnitSymbol.APerm cim:UnitSymbol.V2h cim:UnitSymbol.A2h cim:UnitSymbol.Ah cim:UnitSymbol.count cim:UnitSymbol.ft3 cim:UnitSymbol.m3Perh cim:UnitSymbol.gal cim:UnitSymbol.Btu cim:UnitSymbol.l cim:UnitSymbol.lPerh cim:UnitSymbol.lPerl cim:UnitSymbol.gPerg cim:UnitSymbol.molPerm3 cim:UnitSymbol.molPermol cim:UnitSymbol.molPerkg cim:UnitSymbol.sPers cim:UnitSymbol.HzPerHz cim:UnitSymbol.VPerV cim:UnitSymbol.APerA cim:UnitSymbol.VPerVA cim:UnitSymbol.rev cim:UnitSymbol.kat cim:UnitSymbol.JPerkg cim:UnitSymbol.m3Uncompensated cim:UnitSymbol.m3Compensated cim:UnitSymbol.WPerW cim:UnitSymbol.therm cim:UnitSymbol.onePerm cim:UnitSymbol.m3Perkg cim:UnitSymbol.Pas cim:UnitSymbol.Nm cim:UnitSymbol.NPerm cim:UnitSymbol.radPers2 cim:UnitSymbol.JPerm3 cim:UnitSymbol.VPerm cim:UnitSymbol.CPerm3 cim:UnitSymbol.CPerm2 cim:UnitSymbol.FPerm cim:UnitSymbol.HPerm cim:UnitSymbol.JPermol cim:UnitSymbol.JPermolK cim:UnitSymbol.CPerkg cim:UnitSymbol.GyPers cim:UnitSymbol.WPersr cim:UnitSymbol.WPerm2sr cim:UnitSymbol.katPerm3 cim:UnitSymbol.d cim:UnitSymbol.anglemin cim:UnitSymbol.anglesec cim:UnitSymbol.ha cim:UnitSymbol.tonne cim:UnitSymbol.bar cim:UnitSymbol.mmHg cim:UnitSymbol.M cim:UnitSymbol.kn cim:UnitSymbol.Mx cim:UnitSymbol.G cim:UnitSymbol.Oe cim:UnitSymbol.Vh cim:UnitSymbol.WPerA cim:UnitSymbol.onePerHz cim:UnitSymbol.VPerVAr cim:UnitSymbol.ohmPerm cim:UnitSymbol.kgPerJ cim:UnitSymbol.JPers ) ;
+    linkml:permissible_values cim:UnitSymbol.A,
+        cim:UnitSymbol.A2,
+        cim:UnitSymbol.A2h,
+        cim:UnitSymbol.A2s,
+        cim:UnitSymbol.APerA,
+        cim:UnitSymbol.APerm,
+        cim:UnitSymbol.Ah,
+        cim:UnitSymbol.As,
+        cim:UnitSymbol.Bq,
+        cim:UnitSymbol.Btu,
+        cim:UnitSymbol.C,
+        cim:UnitSymbol.CPerkg,
+        cim:UnitSymbol.CPerm2,
+        cim:UnitSymbol.CPerm3,
+        cim:UnitSymbol.F,
+        cim:UnitSymbol.FPerm,
+        cim:UnitSymbol.G,
+        cim:UnitSymbol.Gy,
+        cim:UnitSymbol.GyPers,
+        cim:UnitSymbol.H,
+        cim:UnitSymbol.HPerm,
+        cim:UnitSymbol.Hz,
+        cim:UnitSymbol.HzPerHz,
+        cim:UnitSymbol.HzPers,
+        cim:UnitSymbol.J,
+        cim:UnitSymbol.JPerK,
+        cim:UnitSymbol.JPerkg,
+        cim:UnitSymbol.JPerkgK,
+        cim:UnitSymbol.JPerm2,
+        cim:UnitSymbol.JPerm3,
+        cim:UnitSymbol.JPermol,
+        cim:UnitSymbol.JPermolK,
+        cim:UnitSymbol.JPers,
+        cim:UnitSymbol.K,
+        cim:UnitSymbol.KPers,
+        cim:UnitSymbol.M,
+        cim:UnitSymbol.Mx,
+        cim:UnitSymbol.N,
+        cim:UnitSymbol.NPerm,
+        cim:UnitSymbol.Nm,
+        cim:UnitSymbol.Oe,
+        cim:UnitSymbol.Pa,
+        cim:UnitSymbol.PaPers,
+        cim:UnitSymbol.Pas,
+        cim:UnitSymbol.Q,
+        cim:UnitSymbol.Qh,
+        cim:UnitSymbol.S,
+        cim:UnitSymbol.SPerm,
+        cim:UnitSymbol.Sv,
+        cim:UnitSymbol.T,
+        cim:UnitSymbol.V,
+        cim:UnitSymbol.V2,
+        cim:UnitSymbol.V2h,
+        cim:UnitSymbol.VA,
+        cim:UnitSymbol.VAh,
+        cim:UnitSymbol.VAr,
+        cim:UnitSymbol.VArh,
+        cim:UnitSymbol.VPerHz,
+        cim:UnitSymbol.VPerV,
+        cim:UnitSymbol.VPerVA,
+        cim:UnitSymbol.VPerVAr,
+        cim:UnitSymbol.VPerm,
+        cim:UnitSymbol.Vh,
+        cim:UnitSymbol.Vs,
+        cim:UnitSymbol.W,
+        cim:UnitSymbol.WPerA,
+        cim:UnitSymbol.WPerW,
+        cim:UnitSymbol.WPerm2,
+        cim:UnitSymbol.WPerm2sr,
+        cim:UnitSymbol.WPermK,
+        cim:UnitSymbol.WPers,
+        cim:UnitSymbol.WPersr,
+        cim:UnitSymbol.Wb,
+        cim:UnitSymbol.Wh,
+        cim:UnitSymbol.anglemin,
+        cim:UnitSymbol.anglesec,
+        cim:UnitSymbol.bar,
+        cim:UnitSymbol.cd,
+        cim:UnitSymbol.charPers,
+        cim:UnitSymbol.character,
+        cim:UnitSymbol.cosPhi,
+        cim:UnitSymbol.count,
+        cim:UnitSymbol.d,
+        cim:UnitSymbol.dB,
+        cim:UnitSymbol.dBm,
+        cim:UnitSymbol.deg,
+        cim:UnitSymbol.degC,
+        cim:UnitSymbol.ft3,
+        cim:UnitSymbol.gPerg,
+        cim:UnitSymbol.gal,
+        cim:UnitSymbol.h,
+        cim:UnitSymbol.ha,
+        cim:UnitSymbol.kat,
+        cim:UnitSymbol.katPerm3,
+        cim:UnitSymbol.kg,
+        cim:UnitSymbol.kgPerJ,
+        cim:UnitSymbol.kgPerm3,
+        cim:UnitSymbol.kgm,
+        cim:UnitSymbol.kgm2,
+        cim:UnitSymbol.kn,
+        cim:UnitSymbol.l,
+        cim:UnitSymbol.lPerh,
+        cim:UnitSymbol.lPerl,
+        cim:UnitSymbol.lPers,
+        cim:UnitSymbol.lm,
+        cim:UnitSymbol.lx,
+        cim:UnitSymbol.m,
+        cim:UnitSymbol.m2,
+        cim:UnitSymbol.m2Pers,
+        cim:UnitSymbol.m3,
+        cim:UnitSymbol.m3Compensated,
+        cim:UnitSymbol.m3Perh,
+        cim:UnitSymbol.m3Perkg,
+        cim:UnitSymbol.m3Pers,
+        cim:UnitSymbol.m3Uncompensated,
+        cim:UnitSymbol.mPerm3,
+        cim:UnitSymbol.mPers,
+        cim:UnitSymbol.mPers2,
+        cim:UnitSymbol.min,
+        cim:UnitSymbol.mmHg,
+        cim:UnitSymbol.mol,
+        cim:UnitSymbol.molPerkg,
+        cim:UnitSymbol.molPerm3,
+        cim:UnitSymbol.molPermol,
+        cim:UnitSymbol.none,
+        cim:UnitSymbol.ohm,
+        cim:UnitSymbol.ohmPerm,
+        cim:UnitSymbol.ohmm,
+        cim:UnitSymbol.onePerHz,
+        cim:UnitSymbol.onePerm,
+        cim:UnitSymbol.ppm,
+        cim:UnitSymbol.rad,
+        cim:UnitSymbol.radPers,
+        cim:UnitSymbol.radPers2,
+        cim:UnitSymbol.rev,
+        cim:UnitSymbol.rotPers,
+        cim:UnitSymbol.s,
+        cim:UnitSymbol.sPers,
+        cim:UnitSymbol.sr,
+        cim:UnitSymbol.therm,
+        cim:UnitSymbol.tonne .
+

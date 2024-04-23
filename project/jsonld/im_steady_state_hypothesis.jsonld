@@ -1,0 +1,1993 @@
+{
+  "name": "SteadyStateHypothesisProfile",
+  "description": "This vocabulary is describing the steady state hypothesis profile from IEC 61970-600-2.",
+  "title": "Steady State Hypothesis Vocabulary",
+  "id": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfile",
+  "imports": [
+    "linkml:types"
+  ],
+  "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "prefixes": [
+    {
+      "prefix_prefix": "linkml",
+      "prefix_reference": "https://w3id.org/linkml/"
+    },
+    {
+      "prefix_prefix": "SteadyStateHypothesisProfile",
+      "prefix_reference": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfile/"
+    },
+    {
+      "prefix_prefix": "cim",
+      "prefix_reference": "http://iec.ch/TC57/CIM100#"
+    },
+    {
+      "prefix_prefix": "cims",
+      "prefix_reference": "http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#"
+    },
+    {
+      "prefix_prefix": "dc",
+      "prefix_reference": "http://purl.org/dc/elements/1.1/"
+    },
+    {
+      "prefix_prefix": "dcat",
+      "prefix_reference": "http://www.w3.org/ns/dcat#"
+    },
+    {
+      "prefix_prefix": "dct",
+      "prefix_reference": "http://purl.org/dc/terms/"
+    },
+    {
+      "prefix_prefix": "eu",
+      "prefix_reference": "http://iec.ch/TC57/CIM100-European#"
+    },
+    {
+      "prefix_prefix": "owl",
+      "prefix_reference": "http://www.w3.org/2002/07/owl#"
+    },
+    {
+      "prefix_prefix": "profcim",
+      "prefix_reference": "http://iec.ch/TC57/ns/CIM/prof-cim#"
+    },
+    {
+      "prefix_prefix": "rdf",
+      "prefix_reference": "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    },
+    {
+      "prefix_prefix": "rdfs",
+      "prefix_reference": "http://www.w3.org/2000/01/rdf-schema#"
+    },
+    {
+      "prefix_prefix": "sh",
+      "prefix_reference": "http://www.w3.org/ns/shacl#"
+    },
+    {
+      "prefix_prefix": "skos",
+      "prefix_reference": "http://www.w3.org/2004/02/skos/core#"
+    },
+    {
+      "prefix_prefix": "xsd",
+      "prefix_reference": "http://www.w3.org/2001/XMLSchema#"
+    },
+    {
+      "prefix_prefix": "ssh",
+      "prefix_reference": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#"
+    },
+    {
+      "prefix_prefix": "this",
+      "prefix_reference": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfile"
+    },
+    {
+      "prefix_prefix": "dcterms",
+      "prefix_reference": "http://purl.org/dc/terms/"
+    },
+    {
+      "prefix_prefix": "faldo",
+      "prefix_reference": "http://biohackathon.org/resource/faldo#"
+    },
+    {
+      "prefix_prefix": "foaf",
+      "prefix_reference": "http://xmlns.com/foaf/0.1/"
+    },
+    {
+      "prefix_prefix": "idot",
+      "prefix_reference": "http://identifiers.org/"
+    },
+    {
+      "prefix_prefix": "oa",
+      "prefix_reference": "http://www.w3.org/ns/oa#"
+    },
+    {
+      "prefix_prefix": "prov",
+      "prefix_reference": "http://www.w3.org/ns/prov#"
+    },
+    {
+      "prefix_prefix": "void",
+      "prefix_reference": "http://rdfs.org/ns/void#"
+    },
+    {
+      "prefix_prefix": "oboInOwl",
+      "prefix_reference": "http://www.geneontology.org/formats/oboInOwl#"
+    },
+    {
+      "prefix_prefix": "shex",
+      "prefix_reference": "http://www.w3.org/ns/shex#"
+    },
+    {
+      "prefix_prefix": "schema",
+      "prefix_reference": "http://schema.org/"
+    },
+    {
+      "prefix_prefix": "TC57CIM",
+      "prefix_reference": "https://cim.ucaiug.io/ns#TC57CIM/"
+    },
+    {
+      "prefix_prefix": "github",
+      "prefix_reference": "https://github.com/"
+    }
+  ],
+  "default_prefix": "this",
+  "default_range": "string",
+  "types": [
+    {
+      "name": "string",
+      "definition_uri": "https://w3id.org/linkml/String",
+      "description": "A character string",
+      "notes": [
+        "In RDF serializations, a slot with range of string is treated as a literal or type xsd:string.   If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"string\"."
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "exact_mappings": [
+        "schema:Text"
+      ],
+      "base": "str",
+      "uri": "http://www.w3.org/2001/XMLSchema#string",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "integer",
+      "definition_uri": "https://w3id.org/linkml/Integer",
+      "description": "An integer",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"integer\"."
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "exact_mappings": [
+        "schema:Integer"
+      ],
+      "base": "int",
+      "uri": "http://www.w3.org/2001/XMLSchema#integer",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "boolean",
+      "definition_uri": "https://w3id.org/linkml/Boolean",
+      "description": "A binary (true or false) value",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"boolean\"."
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "exact_mappings": [
+        "schema:Boolean"
+      ],
+      "base": "Bool",
+      "uri": "http://www.w3.org/2001/XMLSchema#boolean",
+      "repr": "bool",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "float",
+      "definition_uri": "https://w3id.org/linkml/Float",
+      "description": "A real number that conforms to the xsd:float specification",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"float\"."
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "exact_mappings": [
+        "schema:Float"
+      ],
+      "base": "float",
+      "uri": "http://www.w3.org/2001/XMLSchema#float",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "double",
+      "definition_uri": "https://w3id.org/linkml/Double",
+      "description": "A real number that conforms to the xsd:double specification",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"double\"."
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "close_mappings": [
+        "schema:Float"
+      ],
+      "base": "float",
+      "uri": "http://www.w3.org/2001/XMLSchema#double",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "decimal",
+      "definition_uri": "https://w3id.org/linkml/Decimal",
+      "description": "A real number with arbitrary precision that conforms to the xsd:decimal specification",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"decimal\"."
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "broad_mappings": [
+        "schema:Number"
+      ],
+      "base": "Decimal",
+      "uri": "http://www.w3.org/2001/XMLSchema#decimal",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "time",
+      "definition_uri": "https://w3id.org/linkml/Time",
+      "description": "A time object represents a (local) time of day, independent of any particular day",
+      "notes": [
+        "URI is dateTime because OWL reasoners do not work with straight date or time",
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"time\"."
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "exact_mappings": [
+        "schema:Time"
+      ],
+      "base": "XSDTime",
+      "uri": "http://www.w3.org/2001/XMLSchema#time",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "date",
+      "definition_uri": "https://w3id.org/linkml/Date",
+      "description": "a date (year, month and day) in an idealized calendar",
+      "notes": [
+        "URI is dateTime because OWL reasoners don't work with straight date or time",
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"date\"."
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "exact_mappings": [
+        "schema:Date"
+      ],
+      "base": "XSDDate",
+      "uri": "http://www.w3.org/2001/XMLSchema#date",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "datetime",
+      "definition_uri": "https://w3id.org/linkml/Datetime",
+      "description": "The combination of a date and time",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"datetime\"."
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "exact_mappings": [
+        "schema:DateTime"
+      ],
+      "base": "XSDDateTime",
+      "uri": "http://www.w3.org/2001/XMLSchema#dateTime",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "date_or_datetime",
+      "definition_uri": "https://w3id.org/linkml/DateOrDatetime",
+      "description": "Either a date or a datetime",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"date_or_datetime\"."
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "str",
+      "uri": "https://w3id.org/linkml/DateOrDatetime",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "uriorcurie",
+      "definition_uri": "https://w3id.org/linkml/Uriorcurie",
+      "description": "a URI or a CURIE",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"uriorcurie\"."
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "URIorCURIE",
+      "uri": "http://www.w3.org/2001/XMLSchema#anyURI",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "curie",
+      "definition_uri": "https://w3id.org/linkml/Curie",
+      "conforms_to": "https://www.w3.org/TR/curie/",
+      "description": "a compact URI",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"curie\"."
+      ],
+      "comments": [
+        "in RDF serializations this MUST be expanded to a URI",
+        "in non-RDF serializations MAY be serialized as the compact representation"
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "Curie",
+      "uri": "http://www.w3.org/2001/XMLSchema#string",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "uri",
+      "definition_uri": "https://w3id.org/linkml/Uri",
+      "conforms_to": "https://www.ietf.org/rfc/rfc3987.txt",
+      "description": "a complete URI",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"uri\"."
+      ],
+      "comments": [
+        "in RDF serializations a slot with range of uri is treated as a literal or type xsd:anyURI unless it is an identifier or a reference to an identifier, in which case it is translated directly to a node"
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "close_mappings": [
+        "schema:URL"
+      ],
+      "base": "URI",
+      "uri": "http://www.w3.org/2001/XMLSchema#anyURI",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "ncname",
+      "definition_uri": "https://w3id.org/linkml/Ncname",
+      "description": "Prefix part of CURIE",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"ncname\"."
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "NCName",
+      "uri": "http://www.w3.org/2001/XMLSchema#string",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "objectidentifier",
+      "definition_uri": "https://w3id.org/linkml/Objectidentifier",
+      "description": "A URI or CURIE that represents an object in the model.",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"objectidentifier\"."
+      ],
+      "comments": [
+        "Used for inheritance and type checking"
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "ElementIdentifier",
+      "uri": "http://www.w3.org/ns/shex#iri",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "nodeidentifier",
+      "definition_uri": "https://w3id.org/linkml/Nodeidentifier",
+      "description": "A URI, CURIE or BNODE that represents a node in a model.",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"nodeidentifier\"."
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "NodeIdentifier",
+      "uri": "http://www.w3.org/ns/shex#nonLiteral",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "jsonpointer",
+      "definition_uri": "https://w3id.org/linkml/Jsonpointer",
+      "conforms_to": "https://datatracker.ietf.org/doc/html/rfc6901",
+      "description": "A string encoding a JSON Pointer. The value of the string MUST conform to JSON Point syntax and SHOULD dereference to a valid object within the current instance document when encoded in tree form.",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"jsonpointer\"."
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "str",
+      "uri": "http://www.w3.org/2001/XMLSchema#string",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "jsonpath",
+      "definition_uri": "https://w3id.org/linkml/Jsonpath",
+      "conforms_to": "https://www.ietf.org/archive/id/draft-goessner-dispatch-jsonpath-00.html",
+      "description": "A string encoding a JSON Path. The value of the string MUST conform to JSON Point syntax and SHOULD dereference to zero or more valid objects within the current instance document when encoded in tree form.",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"jsonpath\"."
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "str",
+      "uri": "http://www.w3.org/2001/XMLSchema#string",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "sparqlpath",
+      "definition_uri": "https://w3id.org/linkml/Sparqlpath",
+      "conforms_to": "https://www.w3.org/TR/sparql11-query/#propertypaths",
+      "description": "A string encoding a SPARQL Property Path. The value of the string MUST conform to SPARQL syntax and SHOULD dereference to zero or more valid objects within the current instance document when encoded as RDF.",
+      "notes": [
+        "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"sparqlpath\"."
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "str",
+      "uri": "http://www.w3.org/2001/XMLSchema#string",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    }
+  ],
+  "enums": [
+    {
+      "name": "UnitMultiplier",
+      "definition_uri": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfileUnitMultiplier",
+      "from_schema": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfile",
+      "enum_uri": "http://iec.ch/TC57/CIM100#UnitMultiplier",
+      "permissible_values": [
+        {
+          "text": "y",
+          "meaning": "cim:UnitMultiplier.y"
+        },
+        {
+          "text": "z",
+          "meaning": "cim:UnitMultiplier.z"
+        },
+        {
+          "text": "a",
+          "meaning": "cim:UnitMultiplier.a"
+        },
+        {
+          "text": "f",
+          "meaning": "cim:UnitMultiplier.f"
+        },
+        {
+          "text": "p",
+          "meaning": "cim:UnitMultiplier.p"
+        },
+        {
+          "text": "n",
+          "meaning": "cim:UnitMultiplier.n"
+        },
+        {
+          "text": "micro",
+          "meaning": "cim:UnitMultiplier.micro"
+        },
+        {
+          "text": "m",
+          "meaning": "cim:UnitMultiplier.m"
+        },
+        {
+          "text": "c",
+          "meaning": "cim:UnitMultiplier.c"
+        },
+        {
+          "text": "d",
+          "meaning": "cim:UnitMultiplier.d"
+        },
+        {
+          "text": "none",
+          "meaning": "cim:UnitMultiplier.none"
+        },
+        {
+          "text": "da",
+          "meaning": "cim:UnitMultiplier.da"
+        },
+        {
+          "text": "h",
+          "meaning": "cim:UnitMultiplier.h"
+        },
+        {
+          "text": "k",
+          "meaning": "cim:UnitMultiplier.k"
+        },
+        {
+          "text": "M",
+          "meaning": "cim:UnitMultiplier.M"
+        },
+        {
+          "text": "G",
+          "meaning": "cim:UnitMultiplier.G"
+        },
+        {
+          "text": "T",
+          "meaning": "cim:UnitMultiplier.T"
+        },
+        {
+          "text": "P",
+          "meaning": "cim:UnitMultiplier.P"
+        },
+        {
+          "text": "E",
+          "meaning": "cim:UnitMultiplier.E"
+        },
+        {
+          "text": "Z",
+          "meaning": "cim:UnitMultiplier.Z"
+        },
+        {
+          "text": "Y",
+          "meaning": "cim:UnitMultiplier.Y"
+        }
+      ]
+    },
+    {
+      "name": "UnitSymbol",
+      "definition_uri": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfileUnitSymbol",
+      "from_schema": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfile",
+      "enum_uri": "http://iec.ch/TC57/CIM100#UnitSymbol",
+      "permissible_values": [
+        {
+          "text": "none",
+          "meaning": "cim:UnitSymbol.none"
+        },
+        {
+          "text": "m",
+          "meaning": "cim:UnitSymbol.m"
+        },
+        {
+          "text": "kg",
+          "meaning": "cim:UnitSymbol.kg"
+        },
+        {
+          "text": "s",
+          "meaning": "cim:UnitSymbol.s"
+        },
+        {
+          "text": "A",
+          "meaning": "cim:UnitSymbol.A"
+        },
+        {
+          "text": "K",
+          "meaning": "cim:UnitSymbol.K"
+        },
+        {
+          "text": "mol",
+          "meaning": "cim:UnitSymbol.mol"
+        },
+        {
+          "text": "cd",
+          "meaning": "cim:UnitSymbol.cd"
+        },
+        {
+          "text": "deg",
+          "meaning": "cim:UnitSymbol.deg"
+        },
+        {
+          "text": "rad",
+          "meaning": "cim:UnitSymbol.rad"
+        },
+        {
+          "text": "sr",
+          "meaning": "cim:UnitSymbol.sr"
+        },
+        {
+          "text": "Gy",
+          "meaning": "cim:UnitSymbol.Gy"
+        },
+        {
+          "text": "Bq",
+          "meaning": "cim:UnitSymbol.Bq"
+        },
+        {
+          "text": "degC",
+          "meaning": "cim:UnitSymbol.degC"
+        },
+        {
+          "text": "Sv",
+          "meaning": "cim:UnitSymbol.Sv"
+        },
+        {
+          "text": "F",
+          "meaning": "cim:UnitSymbol.F"
+        },
+        {
+          "text": "C",
+          "meaning": "cim:UnitSymbol.C"
+        },
+        {
+          "text": "S",
+          "meaning": "cim:UnitSymbol.S"
+        },
+        {
+          "text": "H",
+          "meaning": "cim:UnitSymbol.H"
+        },
+        {
+          "text": "V",
+          "meaning": "cim:UnitSymbol.V"
+        },
+        {
+          "text": "ohm",
+          "meaning": "cim:UnitSymbol.ohm"
+        },
+        {
+          "text": "J",
+          "meaning": "cim:UnitSymbol.J"
+        },
+        {
+          "text": "N",
+          "meaning": "cim:UnitSymbol.N"
+        },
+        {
+          "text": "Hz",
+          "meaning": "cim:UnitSymbol.Hz"
+        },
+        {
+          "text": "lx",
+          "meaning": "cim:UnitSymbol.lx"
+        },
+        {
+          "text": "lm",
+          "meaning": "cim:UnitSymbol.lm"
+        },
+        {
+          "text": "Wb",
+          "meaning": "cim:UnitSymbol.Wb"
+        },
+        {
+          "text": "T",
+          "meaning": "cim:UnitSymbol.T"
+        },
+        {
+          "text": "W",
+          "meaning": "cim:UnitSymbol.W"
+        },
+        {
+          "text": "Pa",
+          "meaning": "cim:UnitSymbol.Pa"
+        },
+        {
+          "text": "m2",
+          "meaning": "cim:UnitSymbol.m2"
+        },
+        {
+          "text": "m3",
+          "meaning": "cim:UnitSymbol.m3"
+        },
+        {
+          "text": "mPers",
+          "meaning": "cim:UnitSymbol.mPers"
+        },
+        {
+          "text": "mPers2",
+          "meaning": "cim:UnitSymbol.mPers2"
+        },
+        {
+          "text": "m3Pers",
+          "meaning": "cim:UnitSymbol.m3Pers"
+        },
+        {
+          "text": "mPerm3",
+          "meaning": "cim:UnitSymbol.mPerm3"
+        },
+        {
+          "text": "kgm",
+          "meaning": "cim:UnitSymbol.kgm"
+        },
+        {
+          "text": "kgPerm3",
+          "meaning": "cim:UnitSymbol.kgPerm3"
+        },
+        {
+          "text": "m2Pers",
+          "meaning": "cim:UnitSymbol.m2Pers"
+        },
+        {
+          "text": "WPermK",
+          "meaning": "cim:UnitSymbol.WPermK"
+        },
+        {
+          "text": "JPerK",
+          "meaning": "cim:UnitSymbol.JPerK"
+        },
+        {
+          "text": "ppm",
+          "meaning": "cim:UnitSymbol.ppm"
+        },
+        {
+          "text": "rotPers",
+          "meaning": "cim:UnitSymbol.rotPers"
+        },
+        {
+          "text": "radPers",
+          "meaning": "cim:UnitSymbol.radPers"
+        },
+        {
+          "text": "WPerm2",
+          "meaning": "cim:UnitSymbol.WPerm2"
+        },
+        {
+          "text": "JPerm2",
+          "meaning": "cim:UnitSymbol.JPerm2"
+        },
+        {
+          "text": "SPerm",
+          "meaning": "cim:UnitSymbol.SPerm"
+        },
+        {
+          "text": "KPers",
+          "meaning": "cim:UnitSymbol.KPers"
+        },
+        {
+          "text": "PaPers",
+          "meaning": "cim:UnitSymbol.PaPers"
+        },
+        {
+          "text": "JPerkgK",
+          "meaning": "cim:UnitSymbol.JPerkgK"
+        },
+        {
+          "text": "VA",
+          "meaning": "cim:UnitSymbol.VA"
+        },
+        {
+          "text": "VAr",
+          "meaning": "cim:UnitSymbol.VAr"
+        },
+        {
+          "text": "cosPhi",
+          "meaning": "cim:UnitSymbol.cosPhi"
+        },
+        {
+          "text": "Vs",
+          "meaning": "cim:UnitSymbol.Vs"
+        },
+        {
+          "text": "V2",
+          "meaning": "cim:UnitSymbol.V2"
+        },
+        {
+          "text": "As",
+          "meaning": "cim:UnitSymbol.As"
+        },
+        {
+          "text": "A2",
+          "meaning": "cim:UnitSymbol.A2"
+        },
+        {
+          "text": "A2s",
+          "meaning": "cim:UnitSymbol.A2s"
+        },
+        {
+          "text": "VAh",
+          "meaning": "cim:UnitSymbol.VAh"
+        },
+        {
+          "text": "Wh",
+          "meaning": "cim:UnitSymbol.Wh"
+        },
+        {
+          "text": "VArh",
+          "meaning": "cim:UnitSymbol.VArh"
+        },
+        {
+          "text": "VPerHz",
+          "meaning": "cim:UnitSymbol.VPerHz"
+        },
+        {
+          "text": "HzPers",
+          "meaning": "cim:UnitSymbol.HzPers"
+        },
+        {
+          "text": "character",
+          "meaning": "cim:UnitSymbol.character"
+        },
+        {
+          "text": "charPers",
+          "meaning": "cim:UnitSymbol.charPers"
+        },
+        {
+          "text": "kgm2",
+          "meaning": "cim:UnitSymbol.kgm2"
+        },
+        {
+          "text": "dB",
+          "meaning": "cim:UnitSymbol.dB"
+        },
+        {
+          "text": "WPers",
+          "meaning": "cim:UnitSymbol.WPers"
+        },
+        {
+          "text": "lPers",
+          "meaning": "cim:UnitSymbol.lPers"
+        },
+        {
+          "text": "dBm",
+          "meaning": "cim:UnitSymbol.dBm"
+        },
+        {
+          "text": "h",
+          "meaning": "cim:UnitSymbol.h"
+        },
+        {
+          "text": "min",
+          "meaning": "cim:UnitSymbol.min"
+        },
+        {
+          "text": "Q",
+          "meaning": "cim:UnitSymbol.Q"
+        },
+        {
+          "text": "Qh",
+          "meaning": "cim:UnitSymbol.Qh"
+        },
+        {
+          "text": "ohmm",
+          "meaning": "cim:UnitSymbol.ohmm"
+        },
+        {
+          "text": "APerm",
+          "meaning": "cim:UnitSymbol.APerm"
+        },
+        {
+          "text": "V2h",
+          "meaning": "cim:UnitSymbol.V2h"
+        },
+        {
+          "text": "A2h",
+          "meaning": "cim:UnitSymbol.A2h"
+        },
+        {
+          "text": "Ah",
+          "meaning": "cim:UnitSymbol.Ah"
+        },
+        {
+          "text": "count",
+          "meaning": "cim:UnitSymbol.count"
+        },
+        {
+          "text": "ft3",
+          "meaning": "cim:UnitSymbol.ft3"
+        },
+        {
+          "text": "m3Perh",
+          "meaning": "cim:UnitSymbol.m3Perh"
+        },
+        {
+          "text": "gal",
+          "meaning": "cim:UnitSymbol.gal"
+        },
+        {
+          "text": "Btu",
+          "meaning": "cim:UnitSymbol.Btu"
+        },
+        {
+          "text": "l",
+          "meaning": "cim:UnitSymbol.l"
+        },
+        {
+          "text": "lPerh",
+          "meaning": "cim:UnitSymbol.lPerh"
+        },
+        {
+          "text": "lPerl",
+          "meaning": "cim:UnitSymbol.lPerl"
+        },
+        {
+          "text": "gPerg",
+          "meaning": "cim:UnitSymbol.gPerg"
+        },
+        {
+          "text": "molPerm3",
+          "meaning": "cim:UnitSymbol.molPerm3"
+        },
+        {
+          "text": "molPermol",
+          "meaning": "cim:UnitSymbol.molPermol"
+        },
+        {
+          "text": "molPerkg",
+          "meaning": "cim:UnitSymbol.molPerkg"
+        },
+        {
+          "text": "sPers",
+          "meaning": "cim:UnitSymbol.sPers"
+        },
+        {
+          "text": "HzPerHz",
+          "meaning": "cim:UnitSymbol.HzPerHz"
+        },
+        {
+          "text": "VPerV",
+          "meaning": "cim:UnitSymbol.VPerV"
+        },
+        {
+          "text": "APerA",
+          "meaning": "cim:UnitSymbol.APerA"
+        },
+        {
+          "text": "VPerVA",
+          "meaning": "cim:UnitSymbol.VPerVA"
+        },
+        {
+          "text": "rev",
+          "meaning": "cim:UnitSymbol.rev"
+        },
+        {
+          "text": "kat",
+          "meaning": "cim:UnitSymbol.kat"
+        },
+        {
+          "text": "JPerkg",
+          "meaning": "cim:UnitSymbol.JPerkg"
+        },
+        {
+          "text": "m3Uncompensated",
+          "meaning": "cim:UnitSymbol.m3Uncompensated"
+        },
+        {
+          "text": "m3Compensated",
+          "meaning": "cim:UnitSymbol.m3Compensated"
+        },
+        {
+          "text": "WPerW",
+          "meaning": "cim:UnitSymbol.WPerW"
+        },
+        {
+          "text": "therm",
+          "meaning": "cim:UnitSymbol.therm"
+        },
+        {
+          "text": "onePerm",
+          "meaning": "cim:UnitSymbol.onePerm"
+        },
+        {
+          "text": "m3Perkg",
+          "meaning": "cim:UnitSymbol.m3Perkg"
+        },
+        {
+          "text": "Pas",
+          "meaning": "cim:UnitSymbol.Pas"
+        },
+        {
+          "text": "Nm",
+          "meaning": "cim:UnitSymbol.Nm"
+        },
+        {
+          "text": "NPerm",
+          "meaning": "cim:UnitSymbol.NPerm"
+        },
+        {
+          "text": "radPers2",
+          "meaning": "cim:UnitSymbol.radPers2"
+        },
+        {
+          "text": "JPerm3",
+          "meaning": "cim:UnitSymbol.JPerm3"
+        },
+        {
+          "text": "VPerm",
+          "meaning": "cim:UnitSymbol.VPerm"
+        },
+        {
+          "text": "CPerm3",
+          "meaning": "cim:UnitSymbol.CPerm3"
+        },
+        {
+          "text": "CPerm2",
+          "meaning": "cim:UnitSymbol.CPerm2"
+        },
+        {
+          "text": "FPerm",
+          "meaning": "cim:UnitSymbol.FPerm"
+        },
+        {
+          "text": "HPerm",
+          "meaning": "cim:UnitSymbol.HPerm"
+        },
+        {
+          "text": "JPermol",
+          "meaning": "cim:UnitSymbol.JPermol"
+        },
+        {
+          "text": "JPermolK",
+          "meaning": "cim:UnitSymbol.JPermolK"
+        },
+        {
+          "text": "CPerkg",
+          "meaning": "cim:UnitSymbol.CPerkg"
+        },
+        {
+          "text": "GyPers",
+          "meaning": "cim:UnitSymbol.GyPers"
+        },
+        {
+          "text": "WPersr",
+          "meaning": "cim:UnitSymbol.WPersr"
+        },
+        {
+          "text": "WPerm2sr",
+          "meaning": "cim:UnitSymbol.WPerm2sr"
+        },
+        {
+          "text": "katPerm3",
+          "meaning": "cim:UnitSymbol.katPerm3"
+        },
+        {
+          "text": "d",
+          "meaning": "cim:UnitSymbol.d"
+        },
+        {
+          "text": "anglemin",
+          "meaning": "cim:UnitSymbol.anglemin"
+        },
+        {
+          "text": "anglesec",
+          "meaning": "cim:UnitSymbol.anglesec"
+        },
+        {
+          "text": "ha",
+          "meaning": "cim:UnitSymbol.ha"
+        },
+        {
+          "text": "tonne",
+          "meaning": "cim:UnitSymbol.tonne"
+        },
+        {
+          "text": "bar",
+          "meaning": "cim:UnitSymbol.bar"
+        },
+        {
+          "text": "mmHg",
+          "meaning": "cim:UnitSymbol.mmHg"
+        },
+        {
+          "text": "M",
+          "meaning": "cim:UnitSymbol.M"
+        },
+        {
+          "text": "kn",
+          "meaning": "cim:UnitSymbol.kn"
+        },
+        {
+          "text": "Mx",
+          "meaning": "cim:UnitSymbol.Mx"
+        },
+        {
+          "text": "G",
+          "meaning": "cim:UnitSymbol.G"
+        },
+        {
+          "text": "Oe",
+          "meaning": "cim:UnitSymbol.Oe"
+        },
+        {
+          "text": "Vh",
+          "meaning": "cim:UnitSymbol.Vh"
+        },
+        {
+          "text": "WPerA",
+          "meaning": "cim:UnitSymbol.WPerA"
+        },
+        {
+          "text": "onePerHz",
+          "meaning": "cim:UnitSymbol.onePerHz"
+        },
+        {
+          "text": "VPerVAr",
+          "meaning": "cim:UnitSymbol.VPerVAr"
+        },
+        {
+          "text": "ohmPerm",
+          "meaning": "cim:UnitSymbol.ohmPerm"
+        },
+        {
+          "text": "kgPerJ",
+          "meaning": "cim:UnitSymbol.kgPerJ"
+        },
+        {
+          "text": "JPers",
+          "meaning": "cim:UnitSymbol.JPers"
+        }
+      ]
+    }
+  ],
+  "slots": [
+    {
+      "name": "switch__open",
+      "description": "The attribute tells if the switch is considered open when used as input to topology processing.",
+      "from_schema": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfile",
+      "mappings": [
+        "http://iec.ch/TC57/CIM100#Switch.open"
+      ],
+      "slot_uri": "http://iec.ch/TC57/CIM100#Switch.open",
+      "alias": "open",
+      "owner": "Switch",
+      "domain_of": [
+        "Switch"
+      ],
+      "range": "boolean",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "switch__locked",
+      "description": "If true, the switch is locked. The resulting switch state is a combination of locked and Switch.open attributes as follows:\n<ul>\n\t<li>locked=true and Switch.open=true. The resulting state is open and locked;</li>\n\t<li>locked=false and Switch.open=true. The resulting state is open;</li>\n\t<li>locked=false and Switch.open=false. The resulting state is closed.</li>\n</ul>",
+      "from_schema": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfile",
+      "mappings": [
+        "http://iec.ch/TC57/CIM100#Switch.locked"
+      ],
+      "slot_uri": "http://iec.ch/TC57/CIM100#Switch.locked",
+      "alias": "locked",
+      "owner": "Switch",
+      "domain_of": [
+        "Switch"
+      ],
+      "range": "boolean",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "equipment__in_service",
+      "description": "Specifies the availability of the equipment. True means the equipment is available for topology processing, which determines if the equipment is energized or not. False means that the equipment is treated by network applications as if it is not in the model.",
+      "from_schema": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfile",
+      "mappings": [
+        "http://iec.ch/TC57/CIM100#Equipment.inService"
+      ],
+      "slot_uri": "http://iec.ch/TC57/CIM100#Equipment.inService",
+      "alias": "in_service",
+      "owner": "Equipment",
+      "domain_of": [
+        "Equipment"
+      ],
+      "range": "boolean",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "identifiedObject__m_rid",
+      "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+      "from_schema": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfile",
+      "mappings": [
+        "http://iec.ch/TC57/CIM100#IdentifiedObject.mRID"
+      ],
+      "slot_uri": "http://iec.ch/TC57/CIM100#IdentifiedObject.mRID",
+      "alias": "m_rid",
+      "owner": "IdentifiedObject",
+      "domain_of": [
+        "IdentifiedObject"
+      ],
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "identifiedObject__names",
+      "description": "All names of this type.",
+      "from_schema": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfile",
+      "mappings": [
+        "http://iec.ch/TC57/CIM100#NameType.Names"
+      ],
+      "slot_uri": "http://iec.ch/TC57/CIM100#NameType.Names",
+      "multivalued": true,
+      "alias": "names",
+      "owner": "IdentifiedObject",
+      "domain_of": [
+        "IdentifiedObject"
+      ],
+      "range": "Name",
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "energyConsumer__p",
+      "description": "Active power of the load. Load sign convention is used, i.e. positive sign means flow out from a node.\nFor voltage dependent loads the value is at rated voltage.\nStarting value for a steady state solution.",
+      "from_schema": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfile",
+      "mappings": [
+        "http://iec.ch/TC57/CIM100#EnergyConsumer.p"
+      ],
+      "slot_uri": "http://iec.ch/TC57/CIM100#EnergyConsumer.p",
+      "alias": "p",
+      "owner": "EnergyConsumer",
+      "domain_of": [
+        "EnergyConsumer"
+      ],
+      "range": "ActivePower",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "energyConsumer__q",
+      "description": "Reactive power of the load. Load sign convention is used, i.e. positive sign means flow out from a node.\nFor voltage dependent loads the value is at rated voltage.\nStarting value for a steady state solution.",
+      "from_schema": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfile",
+      "mappings": [
+        "http://iec.ch/TC57/CIM100#EnergyConsumer.q"
+      ],
+      "slot_uri": "http://iec.ch/TC57/CIM100#EnergyConsumer.q",
+      "alias": "q",
+      "owner": "EnergyConsumer",
+      "domain_of": [
+        "EnergyConsumer"
+      ],
+      "range": "ReactivePower",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "activePower__value",
+      "from_schema": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfile",
+      "mappings": [
+        "http://iec.ch/TC57/CIM100#ActivePower.value"
+      ],
+      "slot_uri": "http://iec.ch/TC57/CIM100#ActivePower.value",
+      "alias": "value",
+      "owner": "ActivePower",
+      "domain_of": [
+        "ActivePower"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "activePower__multiplier",
+      "from_schema": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfile",
+      "mappings": [
+        "http://iec.ch/TC57/CIM100#ActivePower.multiplier"
+      ],
+      "slot_uri": "http://iec.ch/TC57/CIM100#ActivePower.multiplier",
+      "alias": "multiplier",
+      "owner": "ActivePower",
+      "domain_of": [
+        "ActivePower"
+      ],
+      "range": "UnitMultiplier",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "activePower__unit",
+      "from_schema": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfile",
+      "mappings": [
+        "http://iec.ch/TC57/CIM100#ActivePower.unit"
+      ],
+      "slot_uri": "http://iec.ch/TC57/CIM100#ActivePower.unit",
+      "alias": "unit",
+      "owner": "ActivePower",
+      "domain_of": [
+        "ActivePower"
+      ],
+      "range": "UnitSymbol",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "reactivePower__value",
+      "from_schema": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfile",
+      "mappings": [
+        "http://iec.ch/TC57/CIM100#ReactivePower.value"
+      ],
+      "slot_uri": "http://iec.ch/TC57/CIM100#ReactivePower.value",
+      "alias": "value",
+      "owner": "ReactivePower",
+      "domain_of": [
+        "ReactivePower"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "reactivePower__unit",
+      "from_schema": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfile",
+      "mappings": [
+        "http://iec.ch/TC57/CIM100#ReactivePower.unit"
+      ],
+      "slot_uri": "http://iec.ch/TC57/CIM100#ReactivePower.unit",
+      "alias": "unit",
+      "owner": "ReactivePower",
+      "domain_of": [
+        "ReactivePower"
+      ],
+      "range": "UnitSymbol",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "reactivePower__multiplier",
+      "from_schema": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfile",
+      "mappings": [
+        "http://iec.ch/TC57/CIM100#ReactivePower.multiplier"
+      ],
+      "slot_uri": "http://iec.ch/TC57/CIM100#ReactivePower.multiplier",
+      "alias": "multiplier",
+      "owner": "ReactivePower",
+      "domain_of": [
+        "ReactivePower"
+      ],
+      "range": "UnitMultiplier",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "aCDCTerminal__connected",
+      "description": "The connected status is related to a bus-branch model and the topological node to terminal relation.  True implies the terminal is connected to the related topological node and false implies it is not. \nIn a bus-branch model, the connected status is used to tell if equipment is disconnected without having to change the connectivity described by the topological node to terminal relation. A valid case is that conducting equipment can be connected in one end and open in the other. In particular for an AC line segment, where the reactive line charging can be significant, this is a relevant case.",
+      "from_schema": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfile",
+      "mappings": [
+        "http://iec.ch/TC57/CIM100#ACDCTerminal.connected"
+      ],
+      "slot_uri": "http://iec.ch/TC57/CIM100#ACDCTerminal.connected",
+      "alias": "connected",
+      "owner": "ACDCTerminal",
+      "domain_of": [
+        "ACDCTerminal"
+      ],
+      "range": "boolean",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "name__name_type",
+      "description": "Type of this name.",
+      "from_schema": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfile",
+      "mappings": [
+        "http://iec.ch/TC57/CIM100#Name.NameType"
+      ],
+      "slot_uri": "http://iec.ch/TC57/CIM100#Name.NameType",
+      "alias": "name_type",
+      "owner": "Name",
+      "domain_of": [
+        "Name"
+      ],
+      "range": "NameType",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "name__identified_object",
+      "description": "Identified object that this name designates.",
+      "from_schema": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfile",
+      "mappings": [
+        "http://iec.ch/TC57/CIM100#Name.IdentifiedObject"
+      ],
+      "slot_uri": "http://iec.ch/TC57/CIM100#Name.IdentifiedObject",
+      "alias": "identified_object",
+      "owner": "Name",
+      "domain_of": [
+        "Name"
+      ],
+      "range": "IdentifiedObject",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "nameType__description",
+      "description": "Description of the name type.\r\n",
+      "from_schema": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfile",
+      "mappings": [
+        "http://iec.ch/TC57/CIM100#NameType.description"
+      ],
+      "slot_uri": "http://iec.ch/TC57/CIM100#NameType.description",
+      "alias": "description",
+      "owner": "NameType",
+      "domain_of": [
+        "NameType"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "nameType__name_type_authority",
+      "description": "Authority responsible for managing names of this type.",
+      "from_schema": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfile",
+      "mappings": [
+        "http://iec.ch/TC57/CIM100#NameType.NameTypeAuthority"
+      ],
+      "slot_uri": "http://iec.ch/TC57/CIM100#NameType.NameTypeAuthority",
+      "alias": "name_type_authority",
+      "owner": "NameType",
+      "domain_of": [
+        "NameType"
+      ],
+      "range": "NameTypeAuthority",
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "nameType__names",
+      "description": "All names of this type.",
+      "from_schema": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfile",
+      "mappings": [
+        "http://iec.ch/TC57/CIM100#NameType.Names"
+      ],
+      "slot_uri": "http://iec.ch/TC57/CIM100#NameType.Names",
+      "multivalued": true,
+      "alias": "names",
+      "owner": "NameType",
+      "domain_of": [
+        "NameType"
+      ],
+      "range": "Name",
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "nameTypeAuthority__description",
+      "description": "Description of the name type authority.\r\n",
+      "from_schema": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfile",
+      "mappings": [
+        "http://iec.ch/TC57/CIM100#NameTypeAuthority.description"
+      ],
+      "slot_uri": "http://iec.ch/TC57/CIM100#NameTypeAuthority.description",
+      "alias": "description",
+      "owner": "NameTypeAuthority",
+      "domain_of": [
+        "NameTypeAuthority"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "nameTypeAuthority__name_types",
+      "description": "All name types managed by this authority.",
+      "from_schema": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfile",
+      "mappings": [
+        "http://iec.ch/TC57/CIM100#NameTypeAuthority.NameTypes"
+      ],
+      "slot_uri": "http://iec.ch/TC57/CIM100#NameTypeAuthority.NameTypes",
+      "multivalued": true,
+      "alias": "name_types",
+      "owner": "NameTypeAuthority",
+      "domain_of": [
+        "NameTypeAuthority"
+      ],
+      "range": "NameType",
+      "inlined": true,
+      "@type": "SlotDefinition"
+    }
+  ],
+  "classes": [
+    {
+      "name": "Breaker",
+      "definition_uri": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfileBreaker",
+      "description": "A mechanical switching device capable of making, carrying, and breaking currents under normal circuit conditions and also making, carrying for a specified time, and breaking currents under specified abnormal circuit conditions e.g.  those of short circuit.",
+      "from_schema": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfile",
+      "mappings": [
+        "cim:Breaker"
+      ],
+      "is_a": "ProtectedSwitch",
+      "slots": [
+        "identifiedObject__m_rid",
+        "identifiedObject__names",
+        "equipment__in_service",
+        "switch__open",
+        "switch__locked"
+      ],
+      "slot_usage": {},
+      "class_uri": "http://iec.ch/TC57/CIM100#Breaker",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "ProtectedSwitch",
+      "definition_uri": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfileProtectedSwitch",
+      "description": "A ProtectedSwitch is a switching device that can be operated by ProtectionEquipment.",
+      "from_schema": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfile",
+      "mappings": [
+        "cim:ProtectedSwitch"
+      ],
+      "is_a": "Switch",
+      "slots": [
+        "identifiedObject__m_rid",
+        "identifiedObject__names",
+        "equipment__in_service",
+        "switch__open",
+        "switch__locked"
+      ],
+      "slot_usage": {},
+      "class_uri": "http://iec.ch/TC57/CIM100#ProtectedSwitch",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "Switch",
+      "definition_uri": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfileSwitch",
+      "description": "A generic device designed to close, or open, or both, one or more electric circuits.  All switches are two terminal devices including grounding switches. The ACDCTerminal.connected at the two sides of the switch shall not be considered for assessing switch connectivity, i.e. only Switch.open, .normalOpen and .locked are relevant.",
+      "from_schema": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfile",
+      "mappings": [
+        "cim:Switch"
+      ],
+      "is_a": "ConductingEquipment",
+      "slots": [
+        "identifiedObject__m_rid",
+        "identifiedObject__names",
+        "equipment__in_service",
+        "switch__open",
+        "switch__locked"
+      ],
+      "slot_usage": {},
+      "attributes": [
+        {
+          "name": "open",
+          "description": "The attribute tells if the switch is considered open when used as input to topology processing.",
+          "from_schema": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfile",
+          "slot_uri": "cim:Switch.open",
+          "range": "boolean",
+          "required": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "locked",
+          "description": "If true, the switch is locked. The resulting switch state is a combination of locked and Switch.open attributes as follows:\n<ul>\n\t<li>locked=true and Switch.open=true. The resulting state is open and locked;</li>\n\t<li>locked=false and Switch.open=true. The resulting state is open;</li>\n\t<li>locked=false and Switch.open=false. The resulting state is closed.</li>\n</ul>",
+          "from_schema": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfile",
+          "slot_uri": "cim:Switch.locked",
+          "range": "boolean",
+          "required": true,
+          "@type": "SlotDefinition"
+        }
+      ],
+      "class_uri": "http://iec.ch/TC57/CIM100#Switch",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "ConductingEquipment",
+      "definition_uri": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfileConductingEquipment",
+      "description": "The parts of the AC power system that are designed to carry current or that are conductively connected through terminals.",
+      "from_schema": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfile",
+      "mappings": [
+        "cim:ConductingEquipment"
+      ],
+      "is_a": "Equipment",
+      "slots": [
+        "identifiedObject__m_rid",
+        "identifiedObject__names",
+        "equipment__in_service"
+      ],
+      "slot_usage": {},
+      "class_uri": "http://iec.ch/TC57/CIM100#ConductingEquipment",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "Equipment",
+      "definition_uri": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfileEquipment",
+      "description": "The parts of a power system that are physical devices, electronic or mechanical.",
+      "from_schema": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfile",
+      "mappings": [
+        "cim:Equipment"
+      ],
+      "is_a": "PowerSystemResource",
+      "slots": [
+        "identifiedObject__m_rid",
+        "identifiedObject__names",
+        "equipment__in_service"
+      ],
+      "slot_usage": {},
+      "attributes": [
+        {
+          "name": "in_service",
+          "description": "Specifies the availability of the equipment. True means the equipment is available for topology processing, which determines if the equipment is energized or not. False means that the equipment is treated by network applications as if it is not in the model.",
+          "from_schema": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfile",
+          "slot_uri": "cim:Equipment.inService",
+          "range": "boolean",
+          "required": true,
+          "@type": "SlotDefinition"
+        }
+      ],
+      "class_uri": "http://iec.ch/TC57/CIM100#Equipment",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "PowerSystemResource",
+      "definition_uri": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfilePowerSystemResource",
+      "description": "A power system resource (PSR) can be an item of equipment such as a switch, an equipment container containing many individual items of equipment such as a substation, or an organisational entity such as sub-control area. Power system resources can have measurements associated.",
+      "from_schema": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfile",
+      "mappings": [
+        "cim:PowerSystemResource"
+      ],
+      "is_a": "IdentifiedObject",
+      "slots": [
+        "identifiedObject__m_rid",
+        "identifiedObject__names"
+      ],
+      "slot_usage": {},
+      "class_uri": "http://iec.ch/TC57/CIM100#PowerSystemResource",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "IdentifiedObject",
+      "definition_uri": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfileIdentifiedObject",
+      "description": "This is a root class to provide common identification for all classes needing identification and naming attributes.",
+      "from_schema": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfile",
+      "mappings": [
+        "cim:IdentifiedObject"
+      ],
+      "slots": [
+        "identifiedObject__m_rid",
+        "identifiedObject__names"
+      ],
+      "slot_usage": {},
+      "attributes": [
+        {
+          "name": "m_rid",
+          "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+          "from_schema": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfile",
+          "slot_uri": "cim:IdentifiedObject.mRID",
+          "range": "string",
+          "required": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "names",
+          "description": "All names of this type.",
+          "from_schema": "https://cim.ucaiug.io/ns#TC57CIM",
+          "slot_uri": "cim:NameType.Names",
+          "multivalued": true,
+          "range": "Name",
+          "@type": "SlotDefinition"
+        }
+      ],
+      "class_uri": "http://iec.ch/TC57/CIM100#IdentifiedObject",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "Disconnector",
+      "definition_uri": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfileDisconnector",
+      "description": "A manually operated or motor operated mechanical switching device used for changing the connections in a circuit, or for isolating a circuit or equipment from a source of power. It is required to open or close circuits when negligible current is broken or made.",
+      "from_schema": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfile",
+      "mappings": [
+        "cim:Disconnector"
+      ],
+      "is_a": "Switch",
+      "slots": [
+        "identifiedObject__m_rid",
+        "identifiedObject__names",
+        "equipment__in_service",
+        "switch__open",
+        "switch__locked"
+      ],
+      "slot_usage": {},
+      "class_uri": "http://iec.ch/TC57/CIM100#Disconnector",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "EnergyConsumer",
+      "definition_uri": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfileEnergyConsumer",
+      "description": "Generic user of energy - a  point of consumption on the power system model.\nEnergyConsumer.pfixed, .qfixed, .pfixedPct and .qfixedPct have meaning only if there is no LoadResponseCharacteristic associated with EnergyConsumer or if LoadResponseCharacteristic.exponentModel is set to False.",
+      "from_schema": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfile",
+      "mappings": [
+        "cim:EnergyConsumer"
+      ],
+      "is_a": "EnergyConnection",
+      "slots": [
+        "identifiedObject__m_rid",
+        "identifiedObject__names",
+        "equipment__in_service",
+        "energyConsumer__p",
+        "energyConsumer__q"
+      ],
+      "slot_usage": {},
+      "attributes": [
+        {
+          "name": "p",
+          "description": "Active power of the load. Load sign convention is used, i.e. positive sign means flow out from a node.\nFor voltage dependent loads the value is at rated voltage.\nStarting value for a steady state solution.",
+          "from_schema": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfile",
+          "slot_uri": "cim:EnergyConsumer.p",
+          "range": "ActivePower",
+          "required": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "q",
+          "description": "Reactive power of the load. Load sign convention is used, i.e. positive sign means flow out from a node.\nFor voltage dependent loads the value is at rated voltage.\nStarting value for a steady state solution.",
+          "from_schema": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfile",
+          "slot_uri": "cim:EnergyConsumer.q",
+          "range": "ReactivePower",
+          "required": true,
+          "@type": "SlotDefinition"
+        }
+      ],
+      "class_uri": "http://iec.ch/TC57/CIM100#EnergyConsumer",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "ActivePower",
+      "definition_uri": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfileActivePower",
+      "description": "Product of RMS value of the voltage and the RMS value of the in-phase component of the current.",
+      "from_schema": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfile",
+      "mappings": [
+        "cim:ActivePower"
+      ],
+      "slots": [
+        "activePower__value",
+        "activePower__multiplier",
+        "activePower__unit"
+      ],
+      "slot_usage": {},
+      "attributes": [
+        {
+          "name": "value",
+          "from_schema": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfile",
+          "slot_uri": "cim:ActivePower.value",
+          "range": "float",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "multiplier",
+          "from_schema": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfile",
+          "slot_uri": "cim:ActivePower.multiplier",
+          "range": "UnitMultiplier",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "unit",
+          "from_schema": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfile",
+          "slot_uri": "cim:ActivePower.unit",
+          "range": "UnitSymbol",
+          "@type": "SlotDefinition"
+        }
+      ],
+      "class_uri": "http://iec.ch/TC57/CIM100#ActivePower",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "ReactivePower",
+      "definition_uri": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfileReactivePower",
+      "description": "Product of RMS value of the voltage and the RMS value of the quadrature component of the current.",
+      "from_schema": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfile",
+      "mappings": [
+        "cim:ReactivePower"
+      ],
+      "slots": [
+        "reactivePower__value",
+        "reactivePower__unit",
+        "reactivePower__multiplier"
+      ],
+      "slot_usage": {},
+      "attributes": [
+        {
+          "name": "value",
+          "from_schema": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfile",
+          "slot_uri": "cim:ReactivePower.value",
+          "range": "float",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "unit",
+          "from_schema": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfile",
+          "slot_uri": "cim:ReactivePower.unit",
+          "range": "UnitSymbol",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "multiplier",
+          "from_schema": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfile",
+          "slot_uri": "cim:ReactivePower.multiplier",
+          "range": "UnitMultiplier",
+          "@type": "SlotDefinition"
+        }
+      ],
+      "class_uri": "http://iec.ch/TC57/CIM100#ReactivePower",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "EnergyConnection",
+      "definition_uri": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfileEnergyConnection",
+      "description": "A connection of energy generation or consumption on the power system model.",
+      "from_schema": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfile",
+      "mappings": [
+        "cim:EnergyConnection"
+      ],
+      "is_a": "ConductingEquipment",
+      "slots": [
+        "identifiedObject__m_rid",
+        "identifiedObject__names",
+        "equipment__in_service"
+      ],
+      "slot_usage": {},
+      "class_uri": "http://iec.ch/TC57/CIM100#EnergyConnection",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "LoadBreakSwitch",
+      "definition_uri": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfileLoadBreakSwitch",
+      "description": "A mechanical switching device capable of making, carrying, and breaking currents under normal operating conditions.",
+      "from_schema": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfile",
+      "mappings": [
+        "cim:LoadBreakSwitch"
+      ],
+      "is_a": "ProtectedSwitch",
+      "slots": [
+        "identifiedObject__m_rid",
+        "identifiedObject__names",
+        "equipment__in_service",
+        "switch__open",
+        "switch__locked"
+      ],
+      "slot_usage": {},
+      "class_uri": "http://iec.ch/TC57/CIM100#LoadBreakSwitch",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "Terminal",
+      "definition_uri": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfileTerminal",
+      "description": "An AC electrical connection point to a piece of conducting equipment. Terminals are connected at physical connection points called connectivity nodes.",
+      "from_schema": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfile",
+      "mappings": [
+        "cim:Terminal"
+      ],
+      "is_a": "ACDCTerminal",
+      "slots": [
+        "identifiedObject__m_rid",
+        "identifiedObject__names",
+        "aCDCTerminal__connected"
+      ],
+      "slot_usage": {},
+      "class_uri": "http://iec.ch/TC57/CIM100#Terminal",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "ACDCTerminal",
+      "definition_uri": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfileACDCTerminal",
+      "description": "An electrical connection point (AC or DC) to a piece of conducting equipment. Terminals are connected at physical connection points called connectivity nodes.",
+      "from_schema": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfile",
+      "mappings": [
+        "cim:ACDCTerminal"
+      ],
+      "is_a": "IdentifiedObject",
+      "slots": [
+        "identifiedObject__m_rid",
+        "identifiedObject__names",
+        "aCDCTerminal__connected"
+      ],
+      "slot_usage": {},
+      "attributes": [
+        {
+          "name": "connected",
+          "description": "The connected status is related to a bus-branch model and the topological node to terminal relation.  True implies the terminal is connected to the related topological node and false implies it is not. \nIn a bus-branch model, the connected status is used to tell if equipment is disconnected without having to change the connectivity described by the topological node to terminal relation. A valid case is that conducting equipment can be connected in one end and open in the other. In particular for an AC line segment, where the reactive line charging can be significant, this is a relevant case.",
+          "from_schema": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfile",
+          "slot_uri": "cim:ACDCTerminal.connected",
+          "range": "boolean",
+          "required": true,
+          "@type": "SlotDefinition"
+        }
+      ],
+      "class_uri": "http://iec.ch/TC57/CIM100#ACDCTerminal",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "Name",
+      "definition_uri": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfileName",
+      "description": "The Name class provides the means to define any number of human readable  names for an object. A name is <b>not</b> to be used for defining inter-object relationships. For inter-object relationships instead use the object identification 'mRID'.\r\n",
+      "from_schema": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfile",
+      "mappings": [
+        "cim:Name"
+      ],
+      "slots": [
+        "name__name_type",
+        "name__identified_object"
+      ],
+      "slot_usage": {},
+      "attributes": [
+        {
+          "name": "name_type",
+          "description": "Type of this name.",
+          "from_schema": "https://cim.ucaiug.io/ns#TC57CIM",
+          "slot_uri": "cim:Name.NameType",
+          "range": "NameType",
+          "required": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "identified_object",
+          "description": "Identified object that this name designates.",
+          "from_schema": "https://cim.ucaiug.io/ns#TC57CIM",
+          "slot_uri": "cim:Name.IdentifiedObject",
+          "range": "IdentifiedObject",
+          "required": true,
+          "@type": "SlotDefinition"
+        }
+      ],
+      "class_uri": "http://iec.ch/TC57/CIM100#Name",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "NameType",
+      "definition_uri": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfileNameType",
+      "description": "Type of name. Possible values for attribute 'name' are implementation dependent but standard profiles may specify types. An enterprise may have multiple IT systems each having its own local name for the same object, e.g. a planning system may have different names from an EMS. An object may also have different names within the same IT system, e.g. localName as defined in CIM version 14. The definition from CIM14 is:\r\nThe localName is a human readable name of the object. It is a free text name local to a node in a naming hierarchy similar to a file directory structure. A power system related naming hierarchy may be: Substation, VoltageLevel, Equipment etc. Children of the same parent in such a hierarchy have names that typically are unique among them.\r\n",
+      "from_schema": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfile",
+      "mappings": [
+        "cim:NameType"
+      ],
+      "slots": [
+        "nameType__description",
+        "nameType__name_type_authority",
+        "nameType__names"
+      ],
+      "slot_usage": {},
+      "attributes": [
+        {
+          "name": "description",
+          "description": "Description of the name type.\r\n",
+          "from_schema": "https://cim.ucaiug.io/ns#TC57CIM",
+          "slot_uri": "cim:NameType.description",
+          "range": "string",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "name_type_authority",
+          "description": "Authority responsible for managing names of this type.",
+          "from_schema": "https://cim.ucaiug.io/ns#TC57CIM",
+          "slot_uri": "cim:NameType.NameTypeAuthority",
+          "range": "NameTypeAuthority",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "names",
+          "description": "All names of this type.",
+          "from_schema": "https://cim.ucaiug.io/ns#TC57CIM",
+          "slot_uri": "cim:NameType.Names",
+          "multivalued": true,
+          "range": "Name",
+          "@type": "SlotDefinition"
+        }
+      ],
+      "class_uri": "http://iec.ch/TC57/CIM100#NameType",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "NameTypeAuthority",
+      "definition_uri": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfileNameTypeAuthority",
+      "description": "Authority responsible for creation and management of names of a given type; typically an organization or an enterprise system.\r\n",
+      "from_schema": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfile",
+      "mappings": [
+        "cim:NameTypeAuthority"
+      ],
+      "slots": [
+        "nameTypeAuthority__description",
+        "nameTypeAuthority__name_types"
+      ],
+      "slot_usage": {},
+      "attributes": [
+        {
+          "name": "description",
+          "description": "Description of the name type authority.\r\n",
+          "from_schema": "https://cim.ucaiug.io/ns#TC57CIM",
+          "slot_uri": "cim:NameTypeAuthority.description",
+          "range": "string",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "name_types",
+          "description": "All name types managed by this authority.",
+          "from_schema": "https://cim.ucaiug.io/ns#TC57CIM",
+          "slot_uri": "cim:NameTypeAuthority.NameTypes",
+          "multivalued": true,
+          "range": "NameType",
+          "@type": "SlotDefinition"
+        }
+      ],
+      "class_uri": "http://iec.ch/TC57/CIM100#NameTypeAuthority",
+      "@type": "ClassDefinition"
+    }
+  ],
+  "metamodel_version": "1.7.0",
+  "source_file": "im_steady_state_hypothesis.yaml",
+  "source_file_date": "2024-04-23T15:04:49",
+  "source_file_size": 25089,
+  "generation_date": "2024-04-23T15:07:41",
+  "@type": "SchemaDefinition",
+  "@context": [
+    "project/jsonld/im_steady_state_hypothesis.context.jsonld",
+    "https://w3id.org/linkml/types.context.jsonld",
+    {
+      "@base": "http://iec.ch/TC57/ns/CIM/SteadyStateHypothesis-EU#Package_SteadyStateHypothesisProfile"
+    }
+  ]
+}

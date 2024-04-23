@@ -1,0 +1,35 @@
+---
+site_name: "im-steady-state-hypothesis"
+theme:
+  name: material
+  palette:
+    scheme: default
+    primary: green
+    accent: deep orange
+  features:
+    - content.tabs.link
+  logo: assets/alliander_logo_wit.png
+  language: en
+plugins:
+  - search
+  - mermaid2
+markdown_extensions:
+  - pymdownx.betterem
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+nav:
+  # - Home: home.md
+  - Index: index.md
+  - About: about.md
+site_url: https://ritger-alliander.github.io/im-steady-state-hypothesis
+repo_url: https://github.com/ritger-alliander/im-steady-state-hypothesis
+
+# Uncomment this block to enable use of Google Analytics.
+# Replace the property value with your own ID.
+# extra:
+#   analytics:
+#     provider: google
+#     property: G-XXXXXXXXXX
